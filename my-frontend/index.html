@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/home.css">
+    <title>Frontend</title>
+</head>
+<body>
+    <div class="page">
+
+        <div class="main-content">
+            <div class="infoForm">
+                <div class="loginSection">
+                    <h3>Login</h3>
+                    <input placeholder="Login" id="username">
+                </div>
+                <div class="loginSection">
+                    <h3>Password</h3>
+                    <input placeholder="Password" id="password">
+                </div>
+            </div>
+            <div class="buttonSection">
+                <button id="submitButton" onclick="sendRequest()">Submit</button>
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+    function sendRequest(){
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+        fetch("http://127.0.0.1:8000/api/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'username': username,
+                'password': password,
+            })
+            
+        })
+        .then(response => response.text())
+        .then(data=>{
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+</script>
+
+</html>

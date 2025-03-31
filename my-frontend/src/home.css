@@ -1,0 +1,33 @@
+
+.page{
+    display: flex;
+    background-color: gray;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginSection{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.infoForm{
+    align-items: left;
+}
+
+.buttonSection{
+    padding: 10px;
+}
