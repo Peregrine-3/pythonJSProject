@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import bcrypt
 import pyodbc
+from typing import List
 
 serverName = 'IXP-829\\SQLEXPRESS'
 databaseName = 'PythonAPI'
@@ -39,6 +40,18 @@ app.add_middleware(
 
 rows = cursor.execute('select * from Authentications')
 
+insertStatement = '''insert into Authentications 
+VALUES (2, 'joe', 'mama') '''
+
+print(insertStatement)
+# cursor.execute(insertStatement)
+# conn.commit()
+
+columns = []
+for tupe in cursor.description:
+    columns.append(tupe[0])
+
+print(columns)
 for row in rows:
     print(row)
 
